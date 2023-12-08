@@ -28,7 +28,7 @@ namespace class_koza
         {
             static void Main(string[] args)
             {
-                Horse Flash = new Horse("Flash","Long hair", 2015);
+                Horse Flash = new Horse("Flash","White", 2015);
                 Flash.Print();
             }
         }
