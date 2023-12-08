@@ -1,0 +1,37 @@
+namespace class_koza
+{
+    public class Horse
+    {
+        private string name;
+        private string breed;
+        private int yearOfBirth;
+        public string Name { set { this.name = value; } get { return this.name; } }
+        public string Breed { set { this.breed = value; } get { return this.breed; } }
+        public int YearOfBirth { set { this.yearOfBirth = value; } get { return this.yearOfBirth; } }
+        public Horse (string name, string breed, int yearOfBirth)
+        {
+            this.name = name;
+            this.breed = breed;
+            this.yearOfBirth = yearOfBirth;
+        }
+        public void Sound()
+        {
+            Console.WriteLine("kloc-kloc-kloc");
+        }
+        public void Print()
+        {
+            int age = DateTime.Now.Year - yearOfBirth;
+            Console.WriteLine($"My name is {name}. I am breed {breed} and i am {age} years.");
+            Sound();
+        }
+        internal class Program
+        {
+            static void Main(string[] args)
+            {
+                Horse Flash = new Horse("Flash","Long hair", 2015);
+                Flash.Print();
+            }
+        }
+
+    }
+}
