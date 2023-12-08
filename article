@@ -1,0 +1,72 @@
+namespace artical_class
+{
+    public class Article
+    {
+        private string title;
+        private string author;
+        private string content;
+        public string Title { set { title = value; } get { return title;} }
+        public string Author { set { author = value;}get { return author;} }   
+        public string Content { set { content = value; } get { return content;} }
+        public Article(string title, string author, string content)
+        {
+            this.title = title;
+            this.author = author;
+            this.content = content;
+        }
+        public void Print()
+        {
+            Console.WriteLine(this.title + this.author + this.content);
+        }
+        public void ChangeContent()
+        {
+            this.content = Console.ReadLine();
+        }
+        public void Changeauthor()
+        {
+            this.author = Console.ReadLine();
+        }
+        public void ChangeTitle()
+        {
+            this.title = Console.ReadLine();
+        }
+
+
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("enter title");
+            string title = Console.ReadLine();
+            Console.WriteLine("enter author");
+            string author = Console.ReadLine();
+            Console.WriteLine("enter content");
+            string content = Console.ReadLine(); 
+            Article myArticle = new Article(title,author,content);
+            Console.WriteLine("enter a number");
+            int number = int.Parse(Console.ReadLine());
+            switch (number)
+            {
+                case 1: 
+                    {
+                        myArticle.ChangeContent();
+                     break;
+                    }
+                case 2:
+                    {
+                        myArticle.ChangeContent();
+                        break;
+                    }
+               case 3:
+                    {
+                        myArticle.ChangeContent();
+                        break;
+                    }
+            }
+            myArticle.Print(); 
+            myArticle.ChangeContent();
+            myArticle.Print();
+        }
+    }
+}
