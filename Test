@@ -1,0 +1,36 @@
+# Прочитане на ред от целочислени стойности, разделени със запетая
+input_line = input("Въведете числата, разделени със запетая: ")
+numbers = list(map(int, input_line.split(',')))
+
+# Номер на ученика
+student_number = "001"  # Примерен номер на ученика
+
+# Създаване на два нови масива
+even_indices = [numbers[i] for i in range(len(numbers)) if i % 2 == 0]
+odd_indices = [numbers[i] for i in range(len(numbers)) if i % 2 != 0]
+
+# Имена на масивите
+even_array_name = f"Even_{student_number}"
+odd_array_name = f"Odd_{student_number}"
+
+# Принтиране на масивите
+print(f"{even_array_name}: {even_indices}")
+print(f"{odd_array_name}: {odd_indices}")
+
+# Сума на елементите в масива Even_...
+sum_even = sum(even_indices)
+print(f"Сума на елементите в {even_array_name}: {sum_even}")
+
+# Намиране на максималния елемент и броя на срещанията му в масива Odd_...
+if odd_indices:
+    max_odd = max(odd_indices)
+    count_max_odd = odd_indices.count(max_odd)
+    print(f"Максимален елемент в {odd_array_name}: {max_odd}")
+    print(f"Брой на срещанията на максималния елемент в {odd_array_name}: {count_max_odd}")
+else:
+    print(f"{odd_array_name} е празен масив.")
+
+# Добавяне на стойност -1 в началото и 0 в края на началния масив
+numbers.insert(0, -1)
+numbers.append(0)
+print(f"Началния масив след добавяне на -1 в началото и 0 в края: {numbers}")
