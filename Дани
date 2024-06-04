@@ -1,0 +1,45 @@
+// Прочитане на ред от целочислени стойности, разделени със запетая
+let input_line = "3,3,4,5,1,-1,0,2,6,5,3,8,0,-2";
+let numbers = input_line.split(',').map(Number);
+
+// Номер на ученика
+let student_number = "001";  // Примерен номер на ученика
+
+// Създаване на два нови масива
+let even_indices = [];
+let odd_indices = [];
+
+for (let i = 0; i < numbers.length; i++) {
+    if (i % 2 === 0) {
+        even_indices.push(numbers[i]);
+    } else {
+        odd_indices.push(numbers[i]);
+    }
+}
+
+// Имена на масивите
+let even_array_name = `Even_${student_number}`;
+let odd_array_name = `Odd_${student_number}`;
+
+// Принтиране на масивите
+console.log(`${even_array_name}: ${even_indices}`);
+console.log(`${odd_array_name}: ${odd_indices}`);
+
+// Сума на елементите в масива Even_...
+let sum_even = even_indices.reduce((acc, val) => acc + val, 0);
+console.log(`Сума на елементите в ${even_array_name}: ${sum_even}`);
+
+// Намиране на максималния елемент и броя на срещанията му в масива Odd_...
+if (odd_indices.length > 0) {
+    let max_odd = Math.max(...odd_indices);
+    let count_max_odd = odd_indices.filter(val => val === max_odd).length;
+    console.log(`Максимален елемент в ${odd_array_name}: ${max_odd}`);
+    console.log(`Брой на срещанията на максималния елемент в ${odd_array_name}: ${count_max_odd}`);
+} else {
+    console.log(`${odd_array_name} е празен масив.`);
+}
+
+// Добавяне на стойност -1 в началото и 0 в края на началния масив
+numbers.unshift(-1);
+numbers.push(0);
+console.log(`Началния масив след добавяне на -1 в началото и 0 в края: ${numbers}`);
